@@ -1,6 +1,7 @@
 <template>
+<main>
     <div class="container">
-        <div class="title text-center col-lg-4 col-12 offset-1 offset-lg-4"></div>
+        <h1>- Pokemon's -</h1>
         <div class="d-flex search" action="">
             <input type="text" v-model="search" placeholder="Buscá tus pokemon's..."/>
       </div>
@@ -26,7 +27,7 @@
         </div>
         <Buttons/>
     </div>
-
+</main>
 </template>
 
 <script>
@@ -99,10 +100,11 @@ import Buttons from '../components/Buttons.vue'
 
 <style >
 
-.title{
-    background-image: url('../assets/tituloPoke3.png');
-    background-repeat: no-repeat !important;
-    height: 6.4057rem;
+h1{
+    margin: 3rem auto  !important;
+    font-weight: 900 !important;
+    font-size: 3.5rem !important;
+    color: #C73015;
 }
 
 .card{
