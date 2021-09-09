@@ -1,7 +1,6 @@
 <template>
     <div class="container">
         <div class="title text-center col-lg-4 col-12 offset-1 offset-lg-4"></div>
-
         <div class="d-flex search" action="">
             <input type="text" v-model="search" placeholder="Buscá tus pokemon's..."/>
       </div>
@@ -19,23 +18,24 @@
                             :key="'value'+index">
                             {{ value.type.name }}
                         </div>
-                </div>
+                    </div>
                 <div>
                     <router-link :to="`/pokemon/${pokemon.id}`">Ver detalles</router-link>
                 </div>
             </div>
         </div>
-        <div class="buttons">
-            <button @click="prev" class="btn prev"><i class="fas fa-arrow-left"></i> Prev</button>
-            <button @click="next" class="btn next">Next <i class="fas fa-arrow-right"></i></button>
-        </div>
+        <Buttons/>
     </div>
 
 </template>
 
 <script>
+import Buttons from '../components/Buttons.vue'
 
     export default {
+        components:{
+            Buttons
+        },
         data(){
             return{
                 pokemons: [],
@@ -97,11 +97,7 @@
 </script>
 
 
-
-
-
 <style >
-@import url('https://fonts.googleapis.com/css?family=Acme');
 
 .title{
     background-image: url('../assets/tituloPoke3.png');
@@ -175,6 +171,15 @@
     .buttons button{
         padding: .3rem 1rem !important;
     }
+    .card{
+        height: 35vh;
+    }
+}
+
+@media (max-width:400px) {
+    .card{
+        height: 40vh;
+    }
 }
 
 .search input{
@@ -193,33 +198,5 @@
 .search input::placeholder{
     font-weight: 600;
 }
-.buttons{
-    margin: 8rem auto;
-}
 
-.buttons .next{
-    background-color: #C73015;
-    margin-left: 2rem;
-}
-.buttons .prev{
-    background-color: #0A2E50;
-}
-
-.buttons button{
-    border-radius: 1.2rem;
-    box-shadow: 0 15px 30px rgba(0,0,0,.2),0 10px 10px rgba(0,0,0,.2);
-    color: #fff;
-    padding: .6rem 2.5rem;
-    transition: 0.25s;
-}
-
-.buttons button:hover{
-    letter-spacing: 2px;
-    color: #fff;
-}
-
-.buttons button:focus{
-    outline: none;
-    box-shadow: none;
-}
 </style>
